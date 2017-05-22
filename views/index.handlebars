@@ -1,0 +1,72 @@
+<div class="container">
+	<div class="row top-30 text-center">
+		<div class="col-sm-2 col-sm-offset-2">
+			<img style="height: 150px" src="http://i289.photobucket.com/albums/ll209/mediQanghel/Burgers-1.gif">
+		</div>
+		<div class="col-sm-4">
+			<h1 id="title"> It's BURGER TIME!</h1>	
+		</div>
+		<div class="col-sm-2">
+			<img style="height: 150px" src="http://i289.photobucket.com/albums/ll209/mediQanghel/Burgers-1.gif">
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-sm-4 col-sm-offset-2">
+		<div class="panel">
+			<div class="panel-heading"><h2>EAT DA BURGER!</h2></div>
+			<div class="panel-body">
+			<ul>
+				{{#each burgers}}
+				{{#unless this.devoured}}
+					<li>
+						<p>#{{this.id}}: {{this.burger_name}}
+						<form action="/{{this.id}}?_method=PUT" method="POST">
+							<input type="hidden" name="devoured" value="true">
+							<button class="btn-xs btn-warning" type="submit">EAT IT!</button>
+						</form>
+						</p>
+					</li>
+				{{/unless}}
+				{{/each}}
+			</ul>
+			</div>
+		</div>
+		</div>
+		<div class="col-sm-4">
+		<div class="panel">
+			<div class="panel-heading"><h2>Burgers that you eated!</h2></div>
+			<div class="panel-body">
+			<ul>
+			  {{#each burgers}}
+			    {{#if this.devoured}}
+			      <li>
+				    <p>#{{this.id}} : {{this.burger_name}}</p>
+			      </li>
+			    {{/if}}
+			  {{/each}}
+			</ul>
+			</div>
+		</div>
+		</div>
+	</div>
+	<div class="row text-center">
+		<div class="col-sm-6 col-sm-offset-3">
+			<div class="well">
+				<div class="well-body">
+					<h2>Add a Burger for you to eat</h2>
+
+					<form class="create-form" action="/" method="POST">
+
+						<div class="form-group">
+							<label for="burger-name">Burger Name:</label>
+							<input type="text" id="burger-name" name="burger_name">
+						</div>
+
+						<button class="btn btn-success" type="submit">Add Burger</button>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+
+</div>

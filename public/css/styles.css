@@ -1,0 +1,25 @@
+body {
+	background-image: url(../O8500G0.jpg);
+	background-color: black;
+}
+
+#title {
+	color: yellow;
+	font-family: 'Modak', cursive;
+	-webkit-text-stroke: 3px red;
+	font-size: 58px
+}
+
+img {
+	padding: 15px;
+}
+
+.panel {
+	background-color: red!important;
+	color: yellow;
+}
+
+.well {
+	background-color: antiquewhite!important;
+	padding-bottom: 50px;
+}
