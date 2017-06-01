@@ -1,13 +1,13 @@
-db = require("../models");
+var db = require("../models");
 
 module.exports = function(app){
 
   app.get("/", function(req, res){
     db.Burger.findAll({}).then(function(data){
-      var burgerObj = {
+      var burgers = {
         burgers: data
       };
-      res.render('index', burgerObj);
+      res.render('index', burgers);
     });
   });
 
@@ -32,7 +32,7 @@ module.exports = function(app){
         }
       }).then(function(data){
         //res.redirect('/');
-        res.render('index', burgerObj);
+        res.redirect('/');
       });
   });
 
